@@ -4,18 +4,81 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private EditText el;
+    private EditText el1, resText1;
+    private Button button_;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        addListennerOnButton();
     }
 
-    public void onButtonClick (View v) {
+    private void addListennerOnButton() {
+        el = (EditText)findViewById(R.id.Porsiy);
+        el1 = (EditText)findViewById(R.id.Resept1);
+        resText1 = (EditText)findViewById(R.id.Nado1);
+        button_ = (Button)findViewById(R.id.button);
+        button_.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int num = Integer.parseInt((el.getText().toString()));
+                        int num1 = Integer.parseInt((el1.getText().toString()));
+                        int resProizv1 = num*num1;
+                        resText1.setText(Integer.toString(resProizv1));
+                    }
+                }
+        );
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*  public void onButtonClick (View v) {
         EditText el = (EditText)findViewById(R.id.Porsiy);
         EditText el1 = (EditText)findViewById(R.id.Resept1);
         EditText el2 = (EditText)findViewById(R.id.Resept2);
@@ -53,5 +116,5 @@ public class MainActivity extends AppCompatActivity {
         resText4.setText(Integer.toString(resProizv4));
         resText5.setText(Integer.toString(resProizv5));
         resText6.setText(Integer.toString(resProizv6));
-    }
+    } */
 }
