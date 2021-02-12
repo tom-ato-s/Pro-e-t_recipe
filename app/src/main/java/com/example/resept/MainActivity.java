@@ -1,6 +1,7 @@
 package com.example.resept;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,18 +11,55 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText el;
+   /* private EditText el;
     private EditText el1, resText1;
-    private Button button_;
+    private Button button_;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        addListennerOnButton();
+        /* addListennerOnButton(); */
     }
 
-    private void addListennerOnButton() {
+
+    public void onClick1(View view){
+
+        Fragment1 f1 = new Fragment1();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();                    // будет заменять один фрагмент на другой
+        ft.replace(R.id.conteiner, f1);                                                             // в контейнер загружать надо будет фрагмент 1
+        ft.commit();                                                                                // завускаем контейнер
+    }
+
+    public void onClick2(View view){
+
+        Fragment2 f2 = new Fragment2();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.conteiner, f2);
+        ft.commit();
+
+    }
+
+    public void onClick3(View view){
+
+        Fragment3 f3 = new Fragment3();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.conteiner, f3);
+        ft.commit();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+   /* private void addListennerOnButton() {
         el = (EditText)findViewById(R.id.Porsiy);
         el1 = (EditText)findViewById(R.id.Resept1);
         resText1 = (EditText)findViewById(R.id.Nado1);
@@ -38,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-    }
+    } */
 
 
 
